@@ -17,7 +17,7 @@ import numpy
 numpy.set_printoptions(threshold=sys.maxsize)
 
 voice = "en-US-JennyNeural"
-output_file = "tts_temp.mp3"
+output_file = "IdolVocal.mp3"
 
 config = Config()
 
@@ -135,7 +135,7 @@ p.terminate()
 
 if __name__ == "__main__":
     load_hubert()
-    audio, sr = librosa.load("vocal.mp3", sr=16000, mono=True)
+    audio, sr = librosa.load(output_file, sr=16000, mono=True)
     audio_run = run_vc(vc, net_g, audio, if_f0, tgt_sr, version)
     scipy.io.wavfile.write('stereo_file2.wav', tgt_sr, audio_run)
     #inputLoop()
